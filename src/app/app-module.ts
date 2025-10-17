@@ -12,6 +12,9 @@ import { ListeEmployers } from './liste-employers/liste-employers';
 import { BeginWithUpper2Pipe } from './pipes/begin-with-upper2-pipe';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Users } from './users/users';
+import { Navbar } from './navbar/navbar';
+import { ListProviders } from './list-providers/list-providers';
+import { AddProvider } from './add-provider/add-provider';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { Users } from './users/users';
     ListEtudiants,
     ListeEmployers,
     BeginWithUpper2Pipe,
-    Users
+    Users,
+    Navbar,
+    ListProviders,
+    AddProvider
   ],
   imports: [
     BrowserModule,
