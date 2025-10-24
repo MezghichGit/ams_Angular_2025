@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Provider } from '../services/provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-providers',
@@ -13,7 +14,7 @@ export class ListProviders implements OnInit{
   public providers = new BehaviorSubject<any | null>(null);
   
 
-  constructor(private providerService: Provider )
+  constructor(private providerService: Provider, private router:Router )
   {}
 
   ngOnInit(): void {
@@ -32,6 +33,10 @@ export class ListProviders implements OnInit{
 
       }
     });
+  }
+
+  updateProvider(id:any){
+    this.router.navigate(['updateProvider', id]);
   }
 
   loadProviders(){
