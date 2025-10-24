@@ -19,4 +19,8 @@ export class Provider {
     return this.http.post("http://127.0.0.1:8081/providers/",provider);
   }
 
+   deleteProvider(id:any){
+     return this.http.delete("http://127.0.0.1:8081/providers/"+id);
+  }
+
 }

@@ -18,19 +18,33 @@ export class ListProviders implements OnInit{
 
   ngOnInit(): void {
 
-    this.providerService.getProviders().subscribe(
-      {
-         next: (data: any) => {
+    this.loadProviders();
+    
+  }
+
+  deleteProvider(id:any){
+    this.providerService.deleteProvider(id).subscribe({
+      next: (data: any) => {
+      this.loadProviders();
+      },
+      error: (err) => {
+        console.error('Problème de suppression du provider', err);
+
+      }
+    });
+  }
+
+  loadProviders(){
+    this.providerService.getProviders().subscribe({
+      next: (data: any) => {
         this.providers.next(data);
-        console.log(this.providers)
+
       },
       error: (err) => {
         console.error('Erreur récupération providers', err);
 
       }
-      }
-    );
-    
+    });
   }
 
 
