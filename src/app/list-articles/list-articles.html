@@ -1,0 +1,34 @@
+<h1 align="center">Liste des Articles</h1>
+
+<button class="btn btn-success">Ajouter</button>
+<br/>
+
+<ng-container *ngIf="articles| async as articles">
+  <table align="center" *ngIf="articles.length > 0; else noArticles" border="2" align="center" class="table">
+      <tr>
+        <th>ID</th>
+        <th>Libelle</th>
+        <th>Prix</th>
+        <th>Provider</th>
+        <th>Supprimer</th>
+        <th>Mise à jour</th>
+      </tr>
+    <tbody>
+      <tr *ngFor="let article of articles">
+        <td>{{ article.id}}</td>
+        <td>{{ article.libelle}}</td>
+         <td>{{ article.price}}</td>
+        <td>{{ article.provider.name}}</td>
+    
+        <td><a class="btn btn-danger">Delete</a></td>
+         <td><a class="btn btn-warning" >Update</a></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<!-- Message si aucun fournisseur trouvé -->
+<ng-template #noArticles>
+  <p style="text-align: center;">Aucun article trouvé.</p>
+</ng-template>
+

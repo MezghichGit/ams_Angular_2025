@@ -5,6 +5,8 @@ import { Contact } from './contact/contact';
 import { ListProviders } from './list-providers/list-providers';
 import { AddProvider } from './add-provider/add-provider';
 import { UpdateProvider } from './update-provider/update-provider';
+import { ListArticles } from './list-articles/list-articles';
+import { AddArticle } from './add-article/add-article';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
    {
     path:"contact",
     component:Contact
+  },
+  {
+    path:"listArticles",
+    component:ListArticles
+  },
+  {
+    path:"addArticle",
+    component:AddArticle
   }
 ];
 
