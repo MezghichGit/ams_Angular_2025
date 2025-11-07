@@ -20,7 +20,7 @@
          <td>{{ article.price}}</td>
         <td>{{ article.provider.name}}</td>
     
-        <td><a class="btn btn-danger">Delete</a></td>
+        <td><a class="btn btn-danger" (click)="deleteArticle(article.id)">Delete</a></td>
          <td><a class="btn btn-warning" >Update</a></td>
       </tr>
     </tbody>

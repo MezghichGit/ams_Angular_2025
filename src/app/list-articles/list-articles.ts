@@ -21,7 +21,18 @@ public articles = new BehaviorSubject<any | null>(null);
     this.loadArticles();
     
   }
+  deleteArticle(id:any){
 
+    this.articleService.deleteArticle(id).subscribe({
+      next: (data: any) => {
+      this.loadArticles();
+      },
+      error: (err) => {
+        console.error('Problème de suppression darticle', err);
+
+      }
+    });
+  }
   loadArticles(){
     this.articleService.getArticles().subscribe({
       next: (data: any) => {

@@ -14,7 +14,9 @@ export class Article {
    getArticles(){
     return this.http.get(environment.baseUrl +"articles/");
   }
-
+  deleteArticle(id:any){
+    return this.http.delete(environment.baseUrl +"articles/"+id);
+  }
    addArticle(article: any, idProvider:number): Observable<any> {
     return this.http.post<any>(environment.baseUrl +"articles/" + idProvider, article);
   }
