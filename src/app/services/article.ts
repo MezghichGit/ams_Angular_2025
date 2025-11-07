@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class Article {
     
   }
    getArticles(){
-    return this.http.get("http://127.0.0.1:8081/articles/");
+    return this.http.get(environment.baseUrl +"articles/");
   }
 }

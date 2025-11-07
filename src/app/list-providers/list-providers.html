@@ -1,6 +1,6 @@
 <h1 align="center">Liste des Providers</h1>
 
-<button class="btn btn-success">Ajouter</button>
+<button class="btn btn-success" (click)="navigateAddProvider()">Ajouter</button>
 <br/>
 
 <ng-container *ngIf="providers| async as providers">

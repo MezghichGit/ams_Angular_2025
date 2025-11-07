@@ -34,5 +34,7 @@ public articles = new BehaviorSubject<any | null>(null);
       }
     });
   }
-
+ navigateAddArticle(){
+    this.router.navigate(['addArticle']);
+  }
 }

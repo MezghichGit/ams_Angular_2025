@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,23 +12,23 @@ export class Provider {
     
   }
    getProviders(){
-    return this.http.get("http://127.0.0.1:8081/providers/");
+    return this.http.get(environment.baseUrl +"providers/");
   }
 
   saveProvider(provider:any){
-    return this.http.post("http://127.0.0.1:8081/providers/",provider);
+    return this.http.post(environment.baseUrl +"providers/",provider);
   }
 
    deleteProvider(id:any){
-     return this.http.delete("http://127.0.0.1:8081/providers/"+id);
+     return this.http.delete(environment.baseUrl +"providers/"+id);
   }
 
    getProviderById(id:any){
-     return this.http.get("http://127.0.0.1:8081/providers/"+id);
+     return this.http.get(environment.baseUrl +"providers/"+id);
   }
 
   updateProvider(provider:any){
-     return this.http.post("http://127.0.0.1:8081/providers/",provider);
+     return this.http.post(environment.baseUrl +"providers/",provider);
   }
 
 }
