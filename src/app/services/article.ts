@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +13,9 @@ export class Article {
   }
    getArticles(){
     return this.http.get(environment.baseUrl +"articles/");
+  }
+
+   addArticle(article: any, idProvider:number): Observable<any> {
+    return this.http.post<any>(environment.baseUrl +"articles/" + idProvider, article);
   }
 }

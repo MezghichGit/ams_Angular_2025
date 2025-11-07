@@ -1,1 +1,24 @@
-<p>add-article works!</p>
+<h2 align="center">Ajouter nouvel article</h2>
+
+<form #myform="ngForm" (ngSubmit)="createArticle(myform.value)">
+    <div class="form-group">
+        <label for="ArticleLabel">Article Label </label>
+        <input ngModel name="label" size="20" type="text" class="form-control" id="ArticleLabel" />
+    </div>
+    <div class="form-group">
+        <label for="ArticleProvider">Choisir le Provider </label>
+        <select ngModel name="idProvider"  class="form-control">
+            <option *ngFor="let provider of providers" value="{{provider.id}}">{{provider.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ArticlePrice">Article Price </label>
+        <input ngModel name="price" size="20" type="text" class="form-control" id="ArticlePrice" />
+    </div>
+    <!-- <div class="form-group">
+        <label for="ArticlePicture">Article Picturee </label>
+        <input ngModel name="picture" size="20" type="text" class="form-control" id="ArticlePicture" />
+    </div> -->
+    <button class="btn btn-primary">Ajouter</button>
+</form>
