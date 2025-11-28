@@ -10,23 +10,28 @@ import { AddArticle } from './add-article/add-article';
 import { Login } from './login/login';
 import { Logout } from './logout/logout';
 import { Signup } from './signup/signup';
+import { AuthGuard } from './services/auth-guard';
 
 const routes: Routes = [
   {
     path:"listProviders",
-    component:ListProviders
+    component:ListProviders,
+    canActivate:[AuthGuard]
   },
   {
     path:"addProvider",
-    component:AddProvider
+    component:AddProvider,
+    canActivate:[AuthGuard]
   },
   {
     path:"updateProvider/:id",
-    component:UpdateProvider
+    component:UpdateProvider,
+    canActivate:[AuthGuard]
   },
   {
     path:"home",
-    component:Home
+    component:Home,
+    canActivate:[AuthGuard]
   },
    {
     path:"contact",
@@ -34,11 +39,13 @@ const routes: Routes = [
   },
   {
     path:"listArticles",
-    component:ListArticles
+    component:ListArticles,
+    canActivate:[AuthGuard]
   },
   {
     path:"addArticle",
-    component:AddArticle
+    component:AddArticle,
+    canActivate:[AuthGuard]
   },
   {
     path: 'signin',
@@ -46,7 +53,8 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-    component: Logout
+    component: Logout,
+    canActivate:[AuthGuard]
   },
   {
     path: 'signup',
