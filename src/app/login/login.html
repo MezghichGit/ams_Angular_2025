@@ -1,0 +1,39 @@
+<div class="container col-lg-6 mt-5">
+  <h1 class="text-center mb-4 text-primary">Authentification</h1>
+  <div class="card shadow-lg p-4 rounded-4">
+    <div class="card-body">
+      <form class="form-group">
+
+        <!-- Message d'erreur -->
+        <div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+
+        <!-- Username -->
+        <div class="mb-3 input-group">
+          <span class="input-group-text icon username"><i class="bi bi-person"></i></span>
+          <input type="text" class="form-control" id="username" [(ngModel)]="username"
+                 placeholder="Enter User Name" name="username" required>
+        </div>
+
+        <!-- Password -->
+<div class="mb-3 input-group position-relative">
+  <span class="input-group-text icon password"><i class="bi bi-lock"></i></span>
+  <input [type]="showPassword ? 'text' : 'password'" 
+         class="form-control" [(ngModel)]="password" id="password"
+         placeholder="Enter Password" name="password" required>
+
+  <!-- Icon voir mot de passe -->
+  <span class="input-group-text password-toggle" (click)="togglePassword()">
+    <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+  </span>
+</div>
+        <!-- Bouton Login -->
+        <div class="d-grid">
+          <button (click)="checkLogin()" class="btn btn-success">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -19,6 +19,9 @@ import { FormsModule } from '@angular/forms';
 import { UpdateProvider } from './update-provider/update-provider';
 import { ListArticles } from './list-articles/list-articles';
 import { AddArticle } from './add-article/add-article';
+import { Login } from './login/login';
+import { Logout } from './logout/logout';
+import { Signup } from './signup/signup';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { AddArticle } from './add-article/add-article';
     AddProvider,
     UpdateProvider,
     ListArticles,
-    AddArticle
+    AddArticle,
+    Login,
+    Logout,
+    Signup
   ],
   imports: [
     BrowserModule,

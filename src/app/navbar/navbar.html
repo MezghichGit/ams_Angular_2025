@@ -1,24 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/listProviders">List Providers</a>
+        <a class="nav-link" routerLink="/listProviders"  *ngIf="authenticationService.isUserLoggedIn()">List Providers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/addProvider">Add Provider</a>
+        <a class="nav-link" routerLink="/addProvider" *ngIf="authenticationService.isUserLoggedIn()">Add Provider</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+  
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/listArticles" *ngIf="authenticationService.isUserLoggedIn()">List Articles</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/listArticles">List Articles</a>
+        <a class="nav-link" routerLink="/addArticle" *ngIf="authenticationService.isUserLoggedIn()">Add Article</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/addArticle">Add Article</a>
+        <a class="nav-link" routerLink="/signin" *ngIf="!authenticationService.isUserLoggedIn()">Signin</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/signup"  *ngIf="!authenticationService.isUserLoggedIn()">Signup</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/logout"  *ngIf="authenticationService.isUserLoggedIn()">Logout</a>
       </li>
     </ul>
   </div>

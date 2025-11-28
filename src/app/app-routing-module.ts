@@ -7,6 +7,9 @@ import { AddProvider } from './add-provider/add-provider';
 import { UpdateProvider } from './update-provider/update-provider';
 import { ListArticles } from './list-articles/list-articles';
 import { AddArticle } from './add-article/add-article';
+import { Login } from './login/login';
+import { Logout } from './logout/logout';
+import { Signup } from './signup/signup';
 
 const routes: Routes = [
   {
@@ -36,6 +39,18 @@ const routes: Routes = [
   {
     path:"addArticle",
     component:AddArticle
+  },
+  {
+    path: 'signin',
+    component: Login
+  },
+  {
+    path: 'logout',
+    component: Logout
+  },
+  {
+    path: 'signup',
+    component: Signup
   }
 ];
 
