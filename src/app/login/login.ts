@@ -29,19 +29,19 @@ export class Login implements OnInit {
   ngOnInit() {
   }
 
-  checkLogin() {
+  /*checkLogin() {
     if (this.loginservice.authenticate(this.username, this.password)) {
      //console.log(this.username+" "+this.password)
       this.router.navigate([''])
     } else
       this.invalidLogin = true
-  }
-  /*
+  }*/
+  
  checkLogin() {
     this.loginservice.authenticate(this.username, this.password).subscribe(
-        (data:any) =>  { console.log(data), this.router.navigate(['/providers'])},
+        (data:any) =>  { console.log(data), this.router.navigate(['/listProviders'])},
         (error:any)  =>  this.invalidLogin = true
     );
-  }*/
+  }
   
 }

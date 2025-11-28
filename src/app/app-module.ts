@@ -10,7 +10,7 @@ import { BeginWithDrPipe } from './pipes/begin-with-dr-pipe';
 import { ListEtudiants } from './list-etudiants/list-etudiants';
 import { ListeEmployers } from './liste-employers/liste-employers';
 import { BeginWithUpper2Pipe } from './pipes/begin-with-upper2-pipe';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Users } from './users/users';
 import { Navbar } from './navbar/navbar';
 import { ListProviders } from './list-providers/list-providers';
@@ -22,6 +22,7 @@ import { AddArticle } from './add-article/add-article';
 import { Login } from './login/login';
 import { Logout } from './logout/logout';
 import { Signup } from './signup/signup';
+import { TokenInterceptor } from './services/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,11 @@ import { Signup } from './signup/signup';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [
+  providers: [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor, // Remplacez par votre interceptor personnalisé
+      multi: true
+    },
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideHttpClient(withInterceptorsFromDi())
